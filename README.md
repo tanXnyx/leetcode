@@ -1,2 +1,2 @@
 # leetcode
-doing leetcode
+doing leetcode problem

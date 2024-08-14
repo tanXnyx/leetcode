@@ -35,6 +35,53 @@ Constraints:
 1 <= candidates.length <= 100
 1 <= candidates[i] <= 50
 1 <= target <= 30
+Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
+
+Each number in candidates may only be used once in the combination.
+
+Note: The solution set must not contain duplicate combinations.
+
+ 
+
+Example 1:
+
+Input: candidates = [10,1,2,7,6,1,5], target = 8
+Output: 
+[
+[1,1,6],
+[1,2,5],
+[1,7],
+[2,6]
+]
+Example 2:
+
+Input: candidates = [2,5,2,1,2], target = 5
+Output: 
+[
+[1,2,2],
+[5]
+]
+ 
+
+Constraints:
+
+1 <= candidates.length <= 100
+1 <= candidates[i] <= 50
+1 <= target <= 30
+Approach
+Sorting the Array: First, we sort the candidates array. Sorting helps in easily skipping duplicates and ensures that we can break out of the loop early when the remaining candidates cannot form the target sum.
+
+Backtracking:
+
+We use a backtracking approach to explore all possible combinations.
+Start from the first element and try to include it in the current combination.
+If the current element is the same as the previous element and it wasn't included in the previous combination, skip it to avoid duplicates.
+Subtract the value of the current element from the target and recursively search for the remaining target in the subarray starting from the next index.
+If the target becomes 0, it means we have found a valid combination, so we add it to the result list.
+If the target becomes negative or we run out of elements, backtrack by removing the last element from the current combination.
+Pruning the Search:
+
+As the array is sorted, if at any point an element is greater than the target, we can break the loop since no further elements can be part of a valid combination (because they will all be greater).
  */
 public class CombinationSumll {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {

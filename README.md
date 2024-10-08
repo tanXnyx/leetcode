@@ -1,2 +1,2 @@
-#  leetcode
+# leetcode
 doing leetcode problem
